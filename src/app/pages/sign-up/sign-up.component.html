@@ -3,7 +3,8 @@
         <div class="col-4 m-auto border border-light mt-5 rounded p-3">
             <form action="" [formGroup]="registerationForm" (ngSubmit)="handleSubmit()">
                 <div class="row">
-                    <h1 class="col-12 text-center">Registeration</h1><hr>
+                    <h1 class="col-12 text-center">Registeration</h1>
+                    <hr>
 
                     <div formGroupName="name">
                         <div class="col-12 mt-3">
@@ -41,6 +42,9 @@
                             Email is invalid
                         </div>
                     </div>
+                    <div class="text-danger"  *ngIf="errorMsg">
+                        Email is already taken
+                    </div>
 
                     <div class="col-12 mt-3">
                         <input type="password" placeholder="Password" class="form-control" formControlName="password">
@@ -53,6 +57,7 @@
                         <div *ngIf="registerationData?.password?.errors?.['pattern'] && isSubmitted">
                             Password is invalid
                         </div>
+
                     </div>
                     <div class="col-12 mt-3">
                         <input type="date" placeholder="Birthdate" class="form-control" formControlName="birthdate">

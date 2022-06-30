@@ -39,7 +39,6 @@ export class SignUpComponent implements OnInit {
       this.global.register(this.registerationForm.value).subscribe(res => {
         this.router.navigateByUrl("login")
       }, (err) => {
-        console.log(err)
         this.errorMsg = true
       }, () => {
 
