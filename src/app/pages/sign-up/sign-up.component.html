@@ -1,0 +1,73 @@
+<div class=container>
+    <div class="row">
+        <div class="col-4 m-auto border border-light mt-5 rounded p-3">
+            <form action="" [formGroup]="registerationForm" (ngSubmit)="handleSubmit()">
+                <div class="row">
+                    <h1 class="col-12 text-center">Registeration</h1><hr>
+
+                    <div formGroupName="name">
+                        <div class="col-12 mt-3">
+                            <input type="text" placeholder="First Name" class="form-control"
+                                formControlName="firstName">
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <input type="text" placeholder="Last Name" class="form-control w-100"
+                                formControlName="lastName">
+                        </div>
+                        <div class="text-danger col-6" *ngIf="registerationData?.name?.controls?.firstName?.invalid ">
+                            <div
+                                *ngIf="registerationData?.name?.controls?.firstName?.errors?.['required'] && isSubmitted">
+                                First Name is required
+                            </div>
+                        </div>
+
+                        <div class="text-danger col-6" *ngIf="registerationData?.name?.controls?.lastName?.invalid ">
+
+                            <div
+                                *ngIf="registerationData?.name?.controls?.lastName?.errors?.['required'] && isSubmitted">
+                                Last Name is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <input type="email" placeholder="Email" class="form-control" formControlName="email">
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.email.invalid ">
+                        <div *ngIf="registerationData?.email?.errors?.['required'] && isSubmitted">
+                            Email is required
+                        </div>
+                        <div *ngIf="registerationData?.email?.errors?.['email'] && isSubmitted">
+                            Email is invalid
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <input type="password" placeholder="Password" class="form-control" formControlName="password">
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.password.invalid ">
+
+                        <div *ngIf="registerationData?.password?.errors?.['required'] && isSubmitted">
+                            Password is required
+                        </div>
+                        <div *ngIf="registerationData?.password?.errors?.['pattern'] && isSubmitted">
+                            Password is invalid
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <input type="date" placeholder="Birthdate" class="form-control" formControlName="birthdate">
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.password.invalid ">
+
+                        <div *ngIf="registerationData?.birthdate?.errors?.['required'] && isSubmitted">
+                            Birthdate is required
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end mt-3">
+                        <button class="btn btn-dark border border-white rounded">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<form action="" class="mt-4 col-4 m-auto" #uploadImg="ngForm" (ngSubmit)="handleSubmit()">
+    <img [src]="sanitizeImageUrl()" class=" border rounded-circle rounded m-auto mb-5" *ngIf ="userData?.image">
+
+
+    <input type="file" class="form-control d-inline-block" (change)="handleChange($event)">
+    <button class="btn btn-dark border border-light d-inline-block my-3">Upload Image</button>
+    <div *ngIf="errorMsg" class="text-center text-danger">
+        Image is invalid
+    </div>
+</form>

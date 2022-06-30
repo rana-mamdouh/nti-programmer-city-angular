@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 m-auto border border-light mt-5 rounded p-3">
+            <img [src]="sanitizeImageUrl()" class=" border rounded-circle rounded mt-5 mb-5" *ngIf="user?.image">
+            <hr>
+
+            <div class="row gy-4 my-4">
+                <div class="col-12 text-center">
+                    <label>
+                        <h6>Name: </h6>
+                    </label> {{user?.name?.firstName}} {{user?.name?.lastName}}
+                </div>
+                <div class="col-12 text-center">
+                    <label>
+                        <h6><i class="fa-solid fa-envelope"></i> Email: </h6>
+                    </label> {{user?.email}}
+                </div>
+                <div class="col-12 text-center">
+                    <label>
+                        <h6>Age: </h6>
+                    </label> {{user?.age}}
+                </div>
+            </div>
+        </div>
+    </div>

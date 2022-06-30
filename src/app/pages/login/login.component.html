@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 m-auto border border-light mt-5 rounded p-3">
+            <form action="" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+                <h1 class="col-12 text-center">Login</h1><hr>
+
+                <div class="row gy-4 my-4">
+                    <div class="col-12">
+                        <input type="email" placeholder="Enter your email" (input)="errorMsg = false"
+                            class="form-control" formControlName="email">
+                        <div class="text-danger" *ngIf="loginData?.password?.invalid && isSubmitted ">
+                            <div *ngIf="loginData?.email?.errors?.['required']">
+                                Email is required
+                            </div>
+                            <div *ngIf="loginData?.email?.errors?.['email']">
+                                Email is invalid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <input type="password" placeholder="Enter your password" (input)="errorMsg = false"
+                            class="form-control" formControlName="password">
+                        <div class="text-danger" *ngIf="loginData.password.invalid && isSubmitted ">
+                            <div *ngIf="loginData?.password?.errors?.['required']">
+                                Password is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button class="btn btn-dark border border-white rounded">Log In</button>
+                    </div>
+                    <p class="text-danger text-center" *ngIf="errorMsg">
+                        Invalid Email or Password
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
