@@ -10,7 +10,7 @@ import { GlobalService } from 'src/app/services/global.service';
 export class NavbarComponent implements OnInit {
   userName: any
   posts: any[] = []
-  constructor(public global: GlobalService, private route: Router) { }
+  constructor(public global: GlobalService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -27,12 +27,13 @@ export class NavbarComponent implements OnInit {
   handleLogOut() {
     localStorage.removeItem("token")
     this.global.isLogin = false
-    this.route.navigate(["/"])
+    this.router.navigate(["/"])
     this.global.UserData = null
   }
   filteredPosts: any[] = this.posts
   q: any
   handleInput() {
-    this.route.navigateByUrl(`/search-post/${this.q}`)
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([`/search-post/${this.q}`]))
   }
 }
