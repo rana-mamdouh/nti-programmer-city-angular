@@ -7,17 +7,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="d-flex ml-5">
-                <input class="form-control me-2 col-12" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-dark" type="submit">
+                <input class="form-control me-2 col-12" type="search" placeholder="Search" aria-label="Search" name="search" [(ngModel)] = "q">
+                <button class="btn btn-dark" type="submit" (click)="handleInput()">
                     <i class="fas fa-search"></i>
                 </button>
+                
             </form>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="" aria-current="page" routerLinkActive="activeLink"><i class="fa-solid fa-house"></i> Home</a>
+                    <a class="nav-link" routerLink="" aria-current="page" routerLinkActive="activeLink"><i
+                            class="fa-solid fa-house"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="posts" routerLinkActive="activeLink"><i class="fa-solid fa-clipboard"></i> Posts</a>
+                    <a class="nav-link" routerLink="posts" routerLinkActive="activeLink"><i
+                            class="fa-solid fa-clipboard"></i> Posts</a>
                 </li>
                 <li class="nav-item" *ngIf="!global.isLogin">
                     <button class=" btn btn-dark mx-2" routerLink="login">Login</button>
@@ -25,19 +28,25 @@
                 <li class="nav-item" *ngIf="!global.isLogin">
                     <button class="btn btn-dark mx-2" routerLink="sign-up">Sign up</button>
                 </li>
-                <li class="nav-item dropdown"  *ngIf="global.isLogin">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown" *ngIf="global.isLogin">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Welcome {{userName}} <i class="fa fa-user border rounded-circle p-1"></i>
                     </a>
                     <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item text-light" routerLink="show-profile"><i class="fa-solid fa-eye"></i> Show</a></li>
-                      <li><a class="dropdown-item text-light" routerLink="edit-profile"><i class="fa-solid fa-pen-to-square"></i> Edit</a></li>
-                      <li><a class="dropdown-item text-light" routerLink="edit-profile-image"><i class="fa-solid fa-image"></i> Profile Picture</a></li>
-                      <li><a class="dropdown-item text-light" routerLink="my-posts"><i class="fa-solid fa-clipboard"></i> My Posts</a></li>
+                        <li><a class="dropdown-item text-light" routerLink="show-profile"><i
+                                    class="fa-solid fa-eye"></i> Show</a></li>
+                        <li><a class="dropdown-item text-light" routerLink="edit-profile"><i
+                                    class="fa-solid fa-pen-to-square"></i> Edit</a></li>
+                        <li><a class="dropdown-item text-light" routerLink="edit-profile-image"><i
+                                    class="fa-solid fa-image"></i> Profile Picture</a></li>
+                        <li><a class="dropdown-item text-light" routerLink="my-posts"><i
+                                    class="fa-solid fa-clipboard"></i> My Posts</a></li>
                     </ul>
-                  </li>
+                </li>
                 <li class="nav-item cursor-pointer" *ngIf="global.isLogin">
-                    <button class="btn btn-dark mx-2" (click)="handleLogOut()">Log Out <i class="fa-solid fa-right-from-bracket"></i></button>
+                    <button class="btn btn-dark mx-2" (click)="handleLogOut()">Log Out <i
+                            class="fa-solid fa-right-from-bracket"></i></button>
                 </li>
             </ul>
         </div>

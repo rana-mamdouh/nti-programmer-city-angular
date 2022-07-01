@@ -9,6 +9,7 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class NavbarComponent implements OnInit {
   userName: any
+  posts: any[] = []
   constructor(public global: GlobalService, private route: Router) { }
 
   ngOnInit(): void {
@@ -16,6 +17,10 @@ export class NavbarComponent implements OnInit {
     this.global.showUser().subscribe(res => {
       this.userName = res.data.name.firstName
       this.global.UserData = res.data
+    })
+
+    this.global.showPosts().subscribe(res => {
+      this.posts = res.data
     })
   }
 
@@ -25,5 +30,9 @@ export class NavbarComponent implements OnInit {
     this.route.navigate(["/"])
     this.global.UserData = null
   }
-
+  filteredPosts: any[] = this.posts
+  q: any
+  handleInput() {
+    this.route.navigateByUrl(`/search-post/${this.q}`)
+  }
 }

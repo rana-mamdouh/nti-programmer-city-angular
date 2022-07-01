@@ -7,6 +7,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MyPostsComponent } from './pages/my-posts/my-posts.component';
 import { PostsComponent } from './pages/posts/posts.component';
+import { SearchComponent } from './pages/search/search.component';
 import { ShowProfileComponent } from './pages/show-profile/show-profile.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path :"show-profile" , component : ShowProfileComponent },
   {path :"my-posts" , component : MyPostsComponent },
   {path :"edit-post/:id" , component : EditPostComponent },
+  {path :"search-post/:q" , component : SearchComponent },
 ];
 
 @NgModule({

@@ -22,7 +22,8 @@ import { ShowProfileComponent } from './pages/show-profile/show-profile.componen
 import { MyPostsComponent } from './pages/my-posts/my-posts.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { EditProfileImageComponent } from './pages/edit-profile-image/edit-profile-image.component';
-import { EditPostComponent } from './pages/edit-post/edit-post.component'
+import { EditPostComponent } from './pages/edit-post/edit-post.component';
+import { SearchComponent } from './pages/search/search.component'
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditPostComponent } from './pages/edit-post/edit-post.component'
     ShowProfileComponent,
     MyPostsComponent,
     EditProfileImageComponent,
-    EditPostComponent
+    EditPostComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
