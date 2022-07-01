@@ -21,7 +21,6 @@ export class MyPostsComponent implements OnInit {
 
   deletePost(id: any) {
     this.global.deletePost(id).subscribe(res => {
-      console.log(res)
       location.reload();
     }, (err) => {
       this.errorMsg = true

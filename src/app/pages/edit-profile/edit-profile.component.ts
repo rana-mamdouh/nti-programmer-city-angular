@@ -56,7 +56,6 @@ export class EditProfileComponent implements OnInit {
   }
 
   handlePasswordSubmit() {
-    console.log(this.passwordForm.value)
     this.global.changePassword(this.passwordForm.value).subscribe(res => {
       this.toastr.success("Updated Successfully", "Password Changed")
 

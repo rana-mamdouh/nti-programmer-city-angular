@@ -33,7 +33,6 @@ export class SignUpComponent implements OnInit {
 
   handleSubmit() {
     this.isSubmitted = true
-    console.log(this.registerationData)
 
     if (this.registerationForm.valid) {
       this.global.register(this.registerationForm.value).subscribe(res => {

@@ -33,7 +33,6 @@ export class IndexComponent implements OnInit {
     }
     else {
       this.global.addPost(this.postForm.value).subscribe(res => {
-        console.log(res)
         this.router.navigateByUrl("posts")
     }, (err) => {
       this.errorMsg = true

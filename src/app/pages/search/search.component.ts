@@ -21,7 +21,6 @@ export class SearchComponent implements OnInit {
       this.posts = res.data
       this.handleInput()
     })
-    console.log(this.value)
     }
 
   deletePost(id: any) {
@@ -44,6 +43,5 @@ export class SearchComponent implements OnInit {
 
     if (this.value == '')
       this.filteredPosts = this.posts
-    console.log(this.filteredPosts)
   }
 }
