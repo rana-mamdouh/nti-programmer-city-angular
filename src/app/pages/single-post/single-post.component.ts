@@ -46,14 +46,19 @@ export class SinglePostComponent implements OnInit {
 
   handleSubmit() {
     this.isSubmitted = true
+    console.log(this.isSubmitted)
     if (!this.global.isLogin) {
       this.router.navigateByUrl("login")
     }
     else {
-      this.global.addComment(this.id, this.commentForm.value).subscribe(res => {
+      this.global.addComment(this.id, {
+        ...this.commentForm.value,
+        userId: this.global.UserData._id
+      }).subscribe(res => {
         console.log(res)
         location.reload();
       }, (err) => {
+        console.log(err)
         this.errorMsg = true
       }, () => {
 
