@@ -12,25 +12,25 @@
         </div>
         <h4><i class="fa-solid fa-comment"></i> Comments: </h4>
         <div *ngFor="let comment of comments?.data">
-            <div class="border p-3 rounded-pill" *ngIf="edit==false">
-                
-                <div class="d-flex justify-content-end" *ngIf="comment?.userId== global?.UserData?._id">
-                    <button class=" btn btn-dark" (click)="deleteComment(comment._id)"><i
-                            class="fa-solid fa-trash-can"></i></button>
-                    <button class=" btn btn-dark" (click)="editComment(comment.content)"><i
-                            class="fa-solid fa-pen"></i></button>
-                </div>
-                <i class="fa-solid fa-clock"></i> {{comment?.updatedAt | date:'medium' }}
-                <div class="fw-bolder mx-5"> {{comment?.content}}
-                </div>
-            </div>
-            <div *ngIf="edit==true">
+            <div *ngIf="edit==comment._id">
                 <div class="col-12">
                     <form action="" (ngSubmit)="handleEditSubmit(comment._id, content)">
                         <textarea type="text" [(ngModel)]="commentModel" name="content" class="form-control"
                             #content="ngModel"></textarea>
                         <button class="btn btn-dark border border-white rounded mt-3 mb-5">Submit</button>
                     </form>
+                </div>
+            </div>
+            <div class="border p-3 rounded-pill" *ngIf="edit!=comment._id">
+
+                <div class="d-flex justify-content-end" *ngIf="comment?.userId== global?.UserData?._id">
+                    <button class=" btn btn-dark" (click)="deleteComment(comment._id)"><i
+                            class="fa-solid fa-trash-can"></i></button>
+                    <button class=" btn btn-dark" (click)="editComment(comment)"><i
+                            class="fa-solid fa-pen"></i></button>
+                </div>
+                <i class="fa-solid fa-clock"></i> {{comment?.updatedAt | date:'medium' }}
+                <div class="fw-bolder mx-5"> {{comment?.content}}
                 </div>
             </div>
 

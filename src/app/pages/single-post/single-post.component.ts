@@ -34,7 +34,7 @@ export class SinglePostComponent implements OnInit {
   }
   isSubmitted: boolean = false
   errorMsg: boolean = false
-  edit: boolean = false
+  edit: any
   commentForm = new FormGroup({
     content: new FormControl("", [Validators.required])
   })
@@ -78,8 +78,8 @@ export class SinglePostComponent implements OnInit {
   }
 
   editComment(comment: any) {
-    this.edit = true
-    this.commentModel = comment
+    this.edit = comment._id
+    this.commentModel = comment.content
   }
 
   handleEditSubmit(id: any, content: any) {
