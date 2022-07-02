@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CanActivateGuard } from './guards/can-activate.guard';
 import { EditPostComponent } from './pages/edit-post/edit-post.component';
 import { EditProfileImageComponent } from './pages/edit-profile-image/edit-profile-image.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path :"" , component : IndexComponent },
   {path:"posts" , component:PostsComponent},
   {path :"post/:id" , component : SinglePostComponent },
-  {path :"login" , component : LoginComponent },
+  {path :"login" , component : LoginComponent, canActivate:[CanActivateGuard] },
   {path :"sign-up" , component : SignUpComponent },
   {path :"edit-profile" , component : EditProfileComponent },
   {path :"edit-profile-image" , component : EditProfileImageComponent },

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private global: GlobalService, private router: Router) {
-    if (localStorage.getItem('token')) this.router.navigate([""])
+    // if (localStorage.getItem('token')) this.router.navigate([""])
   }
 
   ngOnInit(): void {
