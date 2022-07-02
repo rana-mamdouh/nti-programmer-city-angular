@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
 
@@ -10,7 +11,7 @@ import { GlobalService } from 'src/app/services/global.service';
 export class NavbarComponent implements OnInit {
   userName: any
   posts: any[] = []
-  constructor(public global: GlobalService, private router: Router) { }
+  constructor(public global: GlobalService, private router: Router, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
@@ -35,5 +36,8 @@ export class NavbarComponent implements OnInit {
   handleInput() {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
     this.router.navigate([`/search-post/${this.q}`]))
+  }
+  sanitizeImageUrl(): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(`http://localhost:3000/user/sendPhoto/${this.global?.UserData?.image?.replace('images\\', '')}`);
   }
 }

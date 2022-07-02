@@ -13,13 +13,14 @@
                     <i class="fas fa-search"></i>
                 </button>
             </form>
+            
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="" aria-current="page" routerLinkActive="activeLink"><i
+                    <a class="nav-link text-light" routerLink="" aria-current="page" routerLinkActive="activeLink"><i
                             class="fa-solid fa-house"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="posts" routerLinkActive="activeLink"><i
+                    <a class="nav-link text-light" routerLink="posts" routerLinkActive="activeLink"><i
                             class="fa-solid fa-clipboard"></i> Posts</a>
                 </li>
                 <li class="nav-item" *ngIf="!global.isLogin">
@@ -29,9 +30,12 @@
                     <button class="btn btn-dark mx-2" routerLink="sign-up">Sign up</button>
                 </li>
                 <li class="nav-item dropdown" *ngIf="global.isLogin">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Welcome {{userName}} <i class="fa fa-user border rounded-circle p-1"></i>
+                        Welcome {{userName}} <i class="fa fa-user border rounded-circle p-1"
+                            *ngIf="!global.UserData.image"></i>
+                        <img [src]="sanitizeImageUrl()" class=" border rounded-circle rounded"
+                            *ngIf="global.UserData.image">
                     </a>
                     <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item text-light" routerLink="show-profile"><i

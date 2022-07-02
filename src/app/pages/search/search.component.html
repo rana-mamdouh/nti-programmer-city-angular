@@ -2,7 +2,7 @@
     <div class="row gy-4">
         <div class="col-4" *ngFor="let post of filteredPosts | paginate: { itemsPerPage: 3, currentPage: p } ; let i = index">
 
-            <div class="card h-100 bg-dark mt-4 border border-light rounded">
+            <div class="card h-100 mt-4 border border-light rounded" style="background-color: rgba(255, 255, 255, 0.5);">
                 <div class="card-body">
                     <div class="d-flex justify-content-end" *ngIf="post.userId == global?.UserData?._id">
                         <button class=" btn btn-dark" (click)="deletePost(post._id)"><i
