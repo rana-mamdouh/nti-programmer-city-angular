@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row gy-4">
         <div class="m-auto mt-5">
-            <div class="card mt-4 border border-light rounded text-center  p-5" style="background-color: rgba(255, 255, 255, 0.5);">
+            <div class="card mt-4 border border-light rounded text-center  p-5"
+                style="background-color: rgba(255, 255, 255, 0.5);">
                 <h4 class="card-title">{{singlePost?.data?.title}}</h4>
                 <h5><i class="fa fa-user p-1"></i> {{user?.data?.name?.firstName}} {{user?.data?.name?.lastName}}</h5>
                 <h6><i class="fa-solid fa-clock"></i> {{singlePost?.data?.createdAt | date:'medium' }}</h6>
@@ -29,8 +30,11 @@
                     <button class=" btn border rounded-circle" (click)="editComment(comment)"><i
                             class="fa-solid fa-pen"></i></button>
                 </div>
-                <i class="fa-solid fa-clock"></i> {{comment?.updatedAt | date:'medium' }}
-                <div class="fw-bolder mx-5"> {{comment?.content}}
+                <div class="fw-bolder"> {{comment.userName.firstName}}
+                    {{comment.userName.lastName}}</div>
+                <div><i class="fa-solid fa-clock text-end"></i> {{comment?.updatedAt |
+                    date:'medium' }}</div>
+                <div class=""> {{comment?.content}}
                 </div>
             </div>
 
